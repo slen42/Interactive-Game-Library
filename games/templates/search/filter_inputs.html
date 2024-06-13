@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="/static/css/search/filter_inputs.css">
+
+<script>
+    function goToPage() {
+        let gameNameSearchInput = document.querySelector('input[name="search-game"]').value;
+        let pubNameSearchInput = document.querySelector('input[name="search-publisher"]').value;
+        let selectedGenres = document.querySelector('select[name="genres-selector"]').selectedOptions;
+        selectedGenres = [].slice.call(selectedGenres).map((option) => '"' + option.value + '"').join(",");
+
+        window.location.href = '/search/game=' + (gameNameSearchInput || "_") +
+            '/publisher=' + (pubNameSearchInput || "_") +
+            '/genres=[' + selectedGenres + ']' +
+            '/{{current_page_num or 1}}';
+    }
+
+
+    function toggleSelectOptions() {
+        document.querySelector('select[name="genres-selector"]').classList.toggle('open');
+    }
+
+    function formatSelected(selectEl) {
+        let selected = [].slice.call(selectEl.selectedOptions).map((option) => option.value);
+
+        let numOptions = selectEl.options.length;
+        let formatted = selected.length
+            ? (selected.length === numOptions ? "All options" : selected.join(", "))
+            : "No options selected";
+
+        console.log(selected);
+        document.querySelector('#genres-filter-value').innerHTML = formatted.length > 20 ? formatted.slice(0, 17) + "..." : formatted;
+    }
+
+</script>
+
+<div>
+    <h1 class="searchtitle">SEARCH ALL GAMES</h1>
+    <div class="search-container">
+        <div>
+            <label>
+                <p class="filter-searchs">Filter by game title:</p>
+                <input type="text" name="search-game" value="{{game_search if game_search!='_' else '' }}">
+            </label>
+
+
+            <label>
+                <p class="filter-searchs">Filter by publisher:</p>
+                <input type="text" name="search-publisher"
+                    value="{{publisher_search if publisher_search!='_' else '' }}">
+            </label>
+
+            <label>
+                <p class="filter-searchs">Filter by genres:</p>
+                <div class="genres-filter-container">
+
+                    <button onclick="toggleSelectOptions()" id="genres-filter-value">
+                        {% if selected_genres|length == all_genres|length %}
+                        All options
+                        {% else %}
+                        {% for genre in selected_genres %}{% if loop.index != 1 %},{% endif %} {{genre}}{% endfor %}
+                        {% endif %}
+                    </button>
+
+                    <select name="genres-selector" multiple data-placeholder="Begin typing a name to filter..." size="7"
+                        onchange="formatSelected(this)">
+                        {% for genre in all_genres %}
+                        <option value="{{genre}}" {%if genre in selected_genres%}selected{% endif %}>{{genre}}</option>
+                        {% endfor %}
+                    </select>
+
+                    <style>
+                        .genres-filter-container {
+                            position: relative;
+                        }
+
+                        select[name="genres-selector"] {
+                            display: none;
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+
+                        }
+
+                        select[name="genres-selector"].open {
+                            display: initial;
+                        }
+                    </style>
+                </div>
+            </label>
+        </div>
+
+        <button type="submit" onclick="goToPage()">Search 🔎</button>
+    </div>
+</div>

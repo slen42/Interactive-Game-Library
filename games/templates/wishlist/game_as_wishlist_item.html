@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/static/css/browse/game_as_list_item.css">
+
+<li>
+    <a href="/game/{{game.game_id}}">
+
+        <img class="gameimage" src="{{game.image_url}}" alt="image of game: {{game.title}}" />
+
+        <div>
+            <h3>{{ game.title }}</h3>
+
+            {% if game.description %}
+            <p class="description">
+                {{game.description[:250]}} {% if game.description|length > 247 %}
+                ... {% endif %}
+            </p>
+            {% else %}
+            <p class="description">Game has no description 🥲</p>
+            {% endif %}
+            {% include 'wishlist/remove_button.html' %}
+        </div>
+    </a>
+</li>

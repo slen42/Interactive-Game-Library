@@ -1,0 +1,14 @@
+#user-actions-container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
+#user-actions-container p {
+  text-decoration: double black 1px underline;
+}
+
+#user-actions-container a {
+  color: white;
+}

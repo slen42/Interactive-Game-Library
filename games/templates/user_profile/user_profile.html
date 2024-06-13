@@ -1,0 +1,39 @@
+{% extends "theme/main.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/user_profile/user_profile.css">
+
+<title>User Profile</title>
+{% endblock %}
+
+{% block main %}
+
+<h1 class="browsetitle">Welcome {{user.username}}</h1>
+
+<div class="user_review_details">
+
+    <h2>User Reviews:</h2>
+    <ul>
+        
+        {% for review in user.reviews %}
+        <li class = "user_reviews">
+            <b>Game:</b> {{ review.game.title }}<br>
+            <b>Rating:</b> {{ review.rating * "⭐"}}<br>
+            <b>Comment:</b> {{ review.comment }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Wishlist:</h2>
+    <ul class="games-list">
+        {% for game in user.favourite_games %}
+        {% include "browse/game_as_list_item.html" %}
+        {% endfor %}
+    </ul>
+
+</div>
+{%endblock%}
+
+{% block sidebar %}
+{% include 'browse_genre/genre_sidebar.html' %}
+{% endblock %}

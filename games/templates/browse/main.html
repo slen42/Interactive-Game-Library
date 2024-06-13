@@ -1,0 +1,26 @@
+{% extends 'theme/main.html' %}
+
+
+{% block head %}
+<title>Browse</title>
+<link rel="stylesheet" href="/static/css/browse/main.css" />
+{% endblock %}
+
+{% block main %}
+
+<h1>BROWSE</h1>
+
+<!-- games list -->
+<ul class="games-list">
+  {% for game in games %}
+  {% include "browse/game_as_list_item.html" %}
+  {% endfor %}
+</ul>
+
+{% include 'browse/pagination.html' %}
+
+{%endblock%}
+
+{% block sidebar %}
+{% include 'browse_genre/genre_sidebar.html' %}
+{% endblock %}

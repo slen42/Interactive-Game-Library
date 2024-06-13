@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="/static/css/browse_genre/genre_sidebar.css">
+
+<nav class="genre-sb-title">
+    <h4>GENRE FILTER</h4>
+    <div class="scroll-genre">
+        <ul class="genre-list">
+            {% for genre in genres %}
+            <li>
+                <a href="/genre/{{genre.genre_name}}">{{ genre.genre_name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

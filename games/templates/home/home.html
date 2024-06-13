@@ -1,0 +1,32 @@
+{% extends "theme/main.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/home/homestyle.css">
+
+<title>Welcome to Smoke</title>
+{% endblock %}
+
+{% block main %}
+
+<div class="mainbody">
+    <img src={{url_for('static', filename='images/logo-notext.png' )}}>
+    <h1 id="business-name">SMOKE</h1>
+    <h2>Where there's Smoke<sup>®</sup>, there's a <span>hot deal!</span></h2>
+    <h3>Created by Arnav Shekaran (ashe292), Boldani Chan (hcha358), Savinda Lenaduwa (slen169)</h3>
+    <p id="business-desc">
+        Smoke is a leading video game digital distributor dedicated to giving our players the hottest deals. Founded by
+        our company directors Arnav, Dani and Savinda, who were disatisfied and disillusioned by the current PC gaming
+        distributors. We will burn them to the ground, and from their ashes, Smoke<sup>®</sup> will rise. Our
+        Smokers<sup>®</sup> receive the best service because our interface is non-intrusive and provides next generation
+        quality of life features, such as our filtering system. With this filtering system, it is easier to find the
+        games you want to play.
+
+    <h3>Smoke<sup>®</sup> for pleasure today.</h3>
+    </p>
+    {% include 'search/filter_inputs.html' %}
+</div>
+{%endblock%}
+
+{% block sidebar %}
+{% include 'browse_genre/genre_sidebar.html' %}
+{% endblock %}

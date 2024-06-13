@@ -1,0 +1,42 @@
+.mainbody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 20px;
+  font-family: 'Helvetica';
+  color: white;
+  line-height: 1.5;
+
+}
+
+#business-desc {
+  text-align: center;
+}
+
+img {
+  width: 150px;
+}
+
+#business-name {
+  color: #18374E;
+  font-family: 'IBM Plex Sans';
+  letter-spacing: 3px;
+  font-size: 40px;
+}
+
+h2 {
+  color: #18374E;
+  font-family: 'IBM Plex Sans';
+}
+
+span {
+  font-family: 'IBM Plex Sans';
+  color: #F24C00;
+}
+
+h3 {
+  color: #18374E;
+  font-family: 'IBM Plex Sans';
+}

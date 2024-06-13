@@ -1,0 +1,32 @@
+nav {
+  color: #18374e;
+  font-family: "IBM Plex Sans";
+  letter-spacing: 2px;
+  font-size: 25px;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.links::before {
+  display: inline-block;
+  content: "";
+  margin-right: 5px;
+}
+
+/* .links.home::before{
+  content:"🏠"; 
+  
+}
+.links.games::before{
+ content:"🎮";
+}
+.links.reviews::before{
+ content:"✏️";
+}
+.links.wishlist::before{
+  content: "🗒️";
+} */

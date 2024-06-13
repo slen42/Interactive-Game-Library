@@ -1,0 +1,34 @@
+.search-container {
+  display: flex;
+  gap: 20px;
+}
+
+.search-container > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-container label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.search-container label > p {
+  width: 150px;
+}
+
+.search-container button {
+  margin: auto 0;
+}
+
+.searchtitle{
+  color: #18374E;
+  font-family: 'IBM Plex Sans';
+  font-size: 30px;
+  text-align: center;
+}
+
+.filter-searchs{
+  font-family: 'Helvetica';
+  color: white;
+}

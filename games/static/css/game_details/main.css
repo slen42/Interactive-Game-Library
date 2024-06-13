@@ -1,0 +1,53 @@
+/* Genres */
+
+ul.genres {
+  list-style: none;
+  display: flex;
+
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+
+.genres li {
+  background-color: lightblue;
+  border-radius: 15px;
+  padding: 5px 15px;
+}
+
+.details-title {
+  color: #345f80;
+  font-family: 'IBM Plex Sans';
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.gamepic {
+  outline: 4px solid #18374E;
+  width: 100%;
+  height: auto;
+}
+
+.game-details {
+  color: whitesmoke;
+  font-family: 'Helvetica';
+  line-height: 1.2;
+}
+
+.user-reviews {
+  color: whitesmoke;
+  font-family: 'Helvetica';
+}
+
+.user-reviews a {
+  color: white;
+}
+
+.bolded {
+  font-weight: bold;
+}
+
+.genres {
+  color: black;
+  font-family: 'Helvetica';
+  font-weight: bold;
+}

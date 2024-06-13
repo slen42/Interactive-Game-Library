@@ -1,0 +1,22 @@
+{% if num_pages > 1 %}
+<link rel="stylesheet" href="/static/css/browse/pagination.css">
+
+<!-- pagination -->
+<div class="pagination">
+    <h4>Navigate pages</h4>
+
+    <div class="controls">
+        {% if current_page_num != 1 %}
+        <a href="./1">⏮️</a>
+        <a href="./{{current_page_num-1}}">◀️</a>
+        {% endif %}
+
+        {% include "browse/range_input.html" %}
+
+        {% if current_page_num != num_pages %}
+        <a href="./{{current_page_num+1}}">▶️</a>
+        <a href="./{{num_pages}}">⏭️</a>
+        {% endif %}
+    </div>
+</div>
+{% endif %}

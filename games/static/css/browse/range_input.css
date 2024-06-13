@@ -1,0 +1,19 @@
+* {
+  --width: 350px;
+}
+
+div {
+  position: relative;
+}
+
+input {
+  width: var(--width);
+}
+
+output {
+  --pos: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(calc(var(--pos) * var(--width)), -100%);
+}

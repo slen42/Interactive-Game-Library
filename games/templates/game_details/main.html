@@ -1,0 +1,77 @@
+{% extends 'theme/main.html' %}
+
+{% block head %}
+<title>{{ game.title }}</title>
+<link rel="stylesheet" href="/static/css/game_details/main.css" />
+{% endblock %}
+
+{% block main %}
+<h1 class="details-title">{{ game.title }}</h1>
+
+<img class="gamepic" src="{{ game.image_url }}" />
+
+<div class="game-details">
+    <p><span class="bolded">RELEASE DATE:</span> {{ game.release_date }}</p>
+    <p><span class="bolded">PRICE:</span> {{ game.price }}</p>
+    <p><span class="bolded">ABOUT:</span> <br>{{ game.description }}</p>
+    <p><span class="bolded">PUBLISHER:</span> {{ game.publisher.publisher_name }}</p>
+</div>
+
+<ul class="genres">
+    {% for genre in game.genres %}
+    <li>
+        <a href="/genre/{{genre.genre_name}}">
+            {{genre.genre_name}}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% include 'wishlist/wishlist_button.html' %}
+
+<div class="user-reviews">
+    <h3>User Reviews {% if average_rating %}(Average: {{average_rating |int * "⭐"}}){% endif %}</h3>
+    <ul>
+        {% for review in game.reviews | reverse %}
+        <li>
+            {% if review is string %}
+            {{review}}
+            {% else %}
+            {{review.rating * "⭐"}}
+            {{review.comment}}
+            - Posted by {{review.user.username}}
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% if user and add_review_form %}
+    <form action="/game/{{game.game_id}}/add-review/" method="post">
+        {{ add_review_form.csrf_token }}
+
+        {{ add_review_form.comment.label }} {{ add_review_form.comment(size=20) }}
+        {{ add_review_form.rating.label }} {{ add_review_form.rating(size=20) }}
+
+        {% if add_review_form_feedback %}
+
+        {% if add_review_success %}
+        <p class="success">
+            {% else %}
+        <p class="error">
+            {% endif %}
+
+            {{add_review_form_feedback}}</p>
+        {% endif %}
+
+        <button type="submit">Add Review</button>
+    </form>
+    {% else %}
+    <a href="/login">Login</a> or <a href="/register">Register</a> to add reviews for {{ game.title }}
+    {% endif %}
+</div>
+
+{%endblock%}
+
+{% block sidebar %}
+{% include 'browse_genre/genre_sidebar.html' %}
+{% endblock %}

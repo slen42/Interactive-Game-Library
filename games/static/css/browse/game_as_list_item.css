@@ -1,0 +1,39 @@
+ul.games-list li>a {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  align-items: center;
+
+  text-decoration: none;
+  color: initial;
+}
+
+ul.games-list li>img {
+  width: 250px;
+  height: 100%;
+}
+
+ul.games-list li .description {
+  max-width: 550px;
+}
+h3{
+  color: whitesmoke;
+  font-family: 'IBM Plex Sans';
+}
+
+.description{
+  color: whitesmoke;
+  font-family: 'Helvetica';
+}
+
+.gameimage{
+  outline: 4px solid #18374E;
+}
+
+.gameimage:hover{
+  outline: 4px solid aqua;
+}
+
+ul.games-list li > a:hover .gameimage {
+  outline: 4px solid aqua;
+}

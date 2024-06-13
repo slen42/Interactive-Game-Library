@@ -1,0 +1,11 @@
+<div>
+    {% if game in favourites %}
+    <form action='/game/{{ game.game_id }}/update-wishlist/' method='post'>
+        <button name="unwish" type="submit">Remove from Wishlist</button>
+    </form>
+    {% elif game not in favourites %}
+    <form action='/game/{{ game.game_id }}/update-wishlist/' method='post'>
+        <button name="wish" type="submit">Add to Wishlist</button>
+    </form>
+    {% endif %}
+</div>

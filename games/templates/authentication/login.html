@@ -1,0 +1,20 @@
+{% extends 'theme/main.html' %}
+
+{% block main %}
+<h1>Login</h1>
+
+<form action="/login" method="post">
+    {{ form.csrf_token }}
+
+    {{ form.username.label }} {{ form.username(size=20) }}
+    {{ form.password.label }} {{ form.password(size=20) }}
+
+    {% if error_message %}
+    <p class="error">{{error_message}}</p>
+    {% endif %}
+
+    <button type="submit">Login</button>
+    <p>Don't have an account? Register <a href="/register">here</a></p>
+</form>
+
+{% endblock %}

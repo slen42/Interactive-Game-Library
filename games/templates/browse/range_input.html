@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/static/css/browse/range_input.css" />
+
+<script>
+  function goToThisPage({ value: pageToRedirectTo }) {
+    window.location.href = `./${pageToRedirectTo}`;
+  }
+
+  function showPageNumber({ value, max, nextElementSibling }) {
+    console.log(value, max)
+    nextElementSibling.value = value;
+    nextElementSibling.style.setProperty(
+      "--pos",
+      parseInt(value) / parseInt(max)
+    );
+  }
+</script>
+
+<div>
+  <input type="range" value="{{current_page_num}}" min="1" max="{{num_pages or 1}}" onchange="goToThisPage(this)"
+    oninput="showPageNumber(this)" />
+
+  <output style="--pos: {{current_page_num/num_pages}}">
+    {{current_page_num}}
+  </output>
+</div>

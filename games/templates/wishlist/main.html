@@ -1,0 +1,26 @@
+{% extends 'theme/main.html' %}
+
+{% block head %}
+<title>Wishlist</title>
+
+<link rel="stylesheet" href="/static/css/wishlist/main.css" />
+{% endblock %}
+
+{% block main %}
+
+<h1>WISHLIST</h1>
+
+<!-- wishlist -->
+<ul class="games-list">
+    {% for game in wishlist_games %}
+    {% include "wishlist/game_as_wishlist_item.html" %}
+    {% endfor %}
+</ul>
+
+{% include 'browse/pagination.html' %}
+
+{% endblock %}
+
+{% block sidebar %}
+{% include 'browse_genre/genre_sidebar.html' %}
+{% endblock %}

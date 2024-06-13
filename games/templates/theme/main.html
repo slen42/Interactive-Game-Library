@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/static/css/theme/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" href="/static/images/logo-notext.png" type="images/png">
+
+    {% block head %}
+    <!-- space for extra head tags needed by the page -->
+    {% endblock %}
+</head>
+
+<body>
+    <aside>
+        <div class="logo">
+            <img src={{url_for('static', filename='images/logo-no-background.png' )}}>
+        </div>
+        {% include "theme/navigation.html" %}
+
+        {% block sidebar %}
+        {% endblock %}
+    </aside>
+
+    <main>
+        {% if request.path not in ['/login', '/register'] %}
+        {% include "authentication/user_actions.html" %}
+        {% endif %}
+
+        {% block main %}
+        <!-- chuck the content that is unique to the page here  -->
+        {% endblock %}
+    </main>
+</body>
+
+<!-- {% include "theme/footer.html" %} -->

@@ -1,0 +1,15 @@
+{% extends 'theme/main.html' %}
+
+{% block head %}
+<title>No search results found!</title>
+
+<link rel="stylesheet" href="/static/css/search/main.css" />
+{% endblock %}
+
+{% block main %}
+<div id="filters-on-searchpg">
+    {% include 'search/filter_inputs.html' %}
+</div>
+<h1 class="search-results-h1">No search results found!</h1>
+
+{% endblock %}

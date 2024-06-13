@@ -1,0 +1,40 @@
+.genre-sb-title {
+    font-size: 15px;
+}
+
+ul.genre-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 500px;
+}
+
+
+.scroll-genre {
+    max-height: 500px;
+    flex: 1;
+    overflow-y: auto;
+    border: 2px solid #18374e;
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #8D98A7;
+    border-radius: 10px;
+}
+
+
+
+
+::-webkit-scrollbar-thumb {
+    background: #69747c;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: aqua;
+}
